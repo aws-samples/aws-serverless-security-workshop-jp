@@ -142,7 +142,12 @@ Resources:
   
   DeploymentsS3Bucket:
     Type: AWS::S3::Bucket
-
+    VersioningConfiguration:
+        Status: Enabled
+    BucketEncryption:
+        ServerSideEncryptionConfiguration:
+            - ServerSideEncryptionByDefault:
+                SSEAlgorithm: AES256
   
   AuroraSubnetGroup:
     Type: "AWS::RDS::DBSubnetGroup"
